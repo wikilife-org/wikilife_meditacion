@@ -48,13 +48,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 	top: 0px;
 	position:absolute;
 }
-#header .der{
-	margin-left: 760px;
-	margin-right: auto;
-	top: 125px;
-	cursor:pointer;
-	position:absolute;
-}
+
 #content{
 	position: absolute;
 	top: 152px;	
@@ -152,7 +146,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     margin-left: 41px;
     margin-top: 54px;
     text-align: center;
-    width: 200px;
+    width: 210px;
 
 }
 
@@ -170,7 +164,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     left: 16px;
     position: absolute;
     right: 30px;
-    top: 236px;
+    top: 230px;
     white-space: pre-wrap;
     width: 189px;
     z-index: 99;
@@ -725,15 +719,15 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 }
 
 .der {
-	background-image: url(/static_media/img/siguiente.png);
-	background-position: 0px -70px;
-	background-repeat: no-repeat;	
-    height: 67px;
-    width: 165px;
-    position: absolute;
-    top: 80px;
-    right: 20px;
+   background-image: url("/static_media/img/siguiente.png");
+    background-position: 0 -72px;
+    background-repeat: no-repeat;
     cursor: pointer;
+    height: 69px;
+    position: absolute;
+    right: 20px;
+    top: 152px;
+    width: 73px;
 }
 .der:hover {
     background-position: 0px 0px;

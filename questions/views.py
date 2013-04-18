@@ -75,7 +75,7 @@ def result(request, response_id):
     result = []
     if len(stat_percent) > 4:
         stat_percent = sortByPercent(stat_percent)
-        stat_percent = stat_percent[:3]
+        stat_percent = stat_percent[:4]
         user_choice = None
         for s in stat_percent:
             if s[0] == answer.choice:

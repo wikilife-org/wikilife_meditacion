@@ -126,7 +126,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 .seleccionadoAbajo{
    height: 25px;
     margin-left: 30px;
-    margin-top: 267px;
+    margin-top: 320px;
     text-align: center;
 }
 .unaImagen{	
@@ -152,7 +152,7 @@ color: #6D6E71;
     margin-left: 21px;
     margin-top: 54px;
     text-align: center;
-    width: 248px;
+    width: 240px;
 }
 
 #choices img {
@@ -162,18 +162,17 @@ color: #6D6E71;
 }
 #choices .resp {
 	
-font-family: Myriad Pro;
-    font-size: 13px;
+   font-family: Myriad Pro;
+    font-size: 18px;
     font-weight: normal;
     height: 68px;
     left: 16px;
     position: absolute;
     right: 30px;
-    top: 226px;
+    top: 236px;
     white-space: pre-wrap;
-    width: 180px;
+    width: 189px;
     z-index: 99;
-
 }
 
 #choices .pregFila {
@@ -217,14 +216,13 @@ font-family: Myriad Pro;
 	background-image:url('/static_media/img/fondo.png');
 	background-repeat: no-repeat;
 	width: 224px;
-	height: 289px;
+	height: 351px;
 	z-index:2;
 	
 }
 
 #choices .persona2 {
 	position:absolute;
-	background-image:url('/static_media/img/fondo2.png');
 	background-repeat: no-repeat;
 	width: 224px;
 	height: 289px;

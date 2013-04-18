@@ -144,15 +144,16 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 }
 
 #choices1{
-color: #6D6E71;
+    color: #6D6E71;
     cursor: pointer;
     font-family: Myriad Pro;
     font-size: 16pt;
     font-weight: normal;
-    margin-left: 21px;
+    margin-left: 41px;
     margin-top: 54px;
     text-align: center;
-    width: 240px;
+    width: 200px;
+
 }
 
 #choices img {

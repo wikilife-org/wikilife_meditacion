@@ -144,7 +144,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     font-size: 16pt;
     font-weight: normal;
     margin-left: 41px;
-    margin-top: 54px;
+    margin-top: 64px;
     text-align: center;
     width: 210px;
 
@@ -238,8 +238,8 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 
 #columns_1 {
 	width: 290px;
-	height: 200px;
-	top: 60px;
+	height: 250px;
+	top: 50px;
 	left: 0px;
 	position: absolute;
 	background-image: url(/static_media/img/tarjeta.png);
@@ -251,8 +251,8 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 #columns_2 {
 	cursor: pointer;
 	width: 290px;
-	height: 200px;
-	top: 60px;
+	height: 250px;
+	top: 50px;
 	left: 291px;
 	position: absolute;
 	background-image: url(/static_media/img/tarjeta.png);
@@ -263,8 +263,8 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 #columns_3 {
 	cursor: pointer;
 	width: 290px;
-	height: 200px;
-	top: 60px;
+	height: 250px;
+	top: 50px;
 	left: 581px;
 	position: absolute;
 	background-image: url(/static_media/img/tarjeta.png);
@@ -274,8 +274,8 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 #columns_4 {
 	cursor: pointer;
 	width: 290px;
-	height: 200px;
-	top: 237px;
+	height: 250px;
+	top: 263px;
 	left: 0px;
 	position: absolute;
 	background-image: url(/static_media/img/tarjeta.png);
@@ -286,8 +286,8 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 #columns_5 {
 	cursor: pointer;
 	width: 290px;
-	height: 200px;
-	top: 237px;
+	height: 250px;
+	top: 263px;
 	left: 295px;
 	position: absolute;
 	background-image: url(/static_media/img/tarjeta.png);
@@ -297,8 +297,8 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 #columns_6 {
 	cursor: pointer;
 	width: 290px;
-	height: 200px;
-	top: 237px;
+	height: 250px;
+	top: 263px;
 	left: 581px;
 	position: absolute;
 	background-image: url(/static_media/img/tarjeta.png);

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block script %}
+<script type="text/javascript">
+function select_choice(choice_id)
+{
+  var form = document.getElementById("voteForm");
+  form.selected_choice.value = choice_id;
+  form.submit();
+}
+</script>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	
+	var cargarPimientos = function(pasoActual){
+		/*Control por si ingresan un valor menor que 1 o mayor que el total de pasos*/
+		total = 15
+		if(pasoActual < 0 || pasoActual > total)
+			pasoActual = 0;
+		
+		//calculo la cantidad de pasos que faltan
+		cantPasosFaltantes = total - pasoActual;
+		
+		//primero dibujo los pimientos grisados
+		for(i=0; i<pasoActual; i++){
+			
+			$("#pimientos").append('<img src="/static_media/img/pimiento_gris.png" width="58" height="50" />').hide().fadeIn();
+			
+		}
+		
+		//segundo dibujo los pimientos rojos
+		for(i=0; i<cantPasosFaltantes; i++){
+			
+			$("#pimientos").append('<img src="/static_media/img/pimiento_rojo.png" width="58" height="50" />').hide().fadeIn();
+		}
+			
+	
+		
+	}
+	cargarPimientos({% block peppers %} {% endblock %});
+	
+});
+</script>
+{% endblock %}
+
+{% block content %}			
+			<div id="question1">
+				<div class="pregunta">{% block question %}{% endblock %}</div>
+			</div>
+			<div id="listaRespuestas1">
+			{% block detail_body %}
+			
+			{% endblock %}
+			</div>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block head %}
+<meta http-equiv="refresh" content="20;url=http://{{ request.META.HTTP_HOST }}"> 
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	
+	$(".barraFinal").each( function(){
+		
+		
+		$(this).css("background-image", "url(/static_media/img/linea2.png)");  
+		
+		
+		alturaImagen = 81;
+		
+		alturaTotal = parseInt(($(this).attr("rel") * alturaImagen) / 100);		
+		
+		valor  = $(this).css('top');		
+		valor2 = $(this).css('height');
+
+		vartop  = valor.split("px");
+		alto = valor2.split("px");
+		
+		topNuevo = (vartop[0] - alturaTotal)+"px";
+		
+		$(this).animate( { height: alturaTotal, top: topNuevo },2000,'easeOutBounce' );
+		
+		$(this).parent().parent().find(".resultFinal").html($(this).attr("rel") + " %");
+	});
+	
+});
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	
+	$(".barraFinal").each( function(){
+		
+		
+		$(this).css("background-image", "url(/static_media/img/linea2.png)");  
+		
+		
+		alturaImagen = 81;
+		
+		alturaTotal = parseInt(($(this).attr("rel") * alturaImagen) / 100);		
+		
+		valor  = $(this).css('top');		
+		valor2 = $(this).css('height');
+
+		vartop  = valor.split("px");
+		alto = valor2.split("px");
+		
+		topNuevo = (vartop[0] - alturaTotal)+"px";
+		
+		$(this).animate( { height: alturaTotal, top: topNuevo },2000,'easeOutBounce' );
+		
+		$(this).parent().parent().find(".resultFinal").html($(this).attr("rel") + " %");
+	});
+	
+});
+</script>
+{% endblock %}
+
+{% block main_content %}
+<div id="bannerHomeFin">
+
+		<div id="innerBannerHome">		
+{% for answer in answers %}
+				<div id="personaFinal_{{ forloop.counter }}">					
+					<div id="choices">
+						<div class="resultFinal"></div>
+						<div>
+							<div class="personaChica">
+							</div>
+							<div class="persona2Chica">
+							</div>
+							<div class="barraFinal" rel="{{ answer.stat|floatformat:0 }}">
+							</div>
+						</div>						
+						<br/>
+						<span class="respFinal">{{ answer.choice.choice }}</span>						
+						<span class="pregFinal">{{ answer.poll.question }}</span>
+					</div>					
+				</div>				
+{% endfor %}
+			
+			<div id="saludoFinal">Muchas gracias! Visitanos en <b>Hlogr.com</b></div>
+</div>
+</div>
+{% endblock %}

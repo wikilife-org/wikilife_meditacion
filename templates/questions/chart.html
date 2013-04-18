@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+
+
+{% block main_content %}
+<div id="bannerHome">
+
+<!--
+<h3 style="float:right">Respondieron {{ respondents }} personas</h3>
+<br/>
+<h2>{{ chart.title }} </h2>
+<br/>
+<br/>
+-->
+<div class="logo"><img src="/static_media/img/hlogr.png" width="150" alt="Hlogr" /></div>
+
+<div id="chart">
+
+
+<div class="label">{{ chart.title }} </div>
+<table>
+	<tr>
+		<td><!-- {{ chart.poll2.question }} --></td>
+{% for r in stat.items.0.1.items %}
+		<td align="center">
+			{% if r.0.has_photo %}
+			{{ r.0 }}
+			<div class="chart_header_block"><img src="{{ r.0.photo.url }}" width="80px"/></div>
+			{% else %}
+			<div class="chart_header_block"><br/><br/>{{ r.0 }}</div>
+			{% endif %}
+		</td>
+		
+				
+{% endfor %}
+	</tr>
+{% for s in stat.items %}
+<tr>
+	<td width="210">
+		{% if s.0.has_photo %}
+		<div class="chart_header_text_side">{{ s.0 }}</div>
+		<div class="chart_header_block_side"><img src="{{ s.0.photo.url }}" width="80px"/></div>
+		{% else %}
+		<div class="chart_header_text_side"></div>
+		<div class="chart_header_block_side"><br/><br/>{{ s.0 }}</div>
+		{% endif %}
+	</td>
+{% for c in s.1.items %}
+		<td class="stat">{{ c.1|floatformat:0}}%</td>
+{% endfor %}
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+
+{% endblock %}

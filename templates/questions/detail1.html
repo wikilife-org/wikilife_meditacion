@@ -1,0 +1,50 @@
+{% extends "base-question.html" %}
+
+{% block peppers %} {{ poll.sequence }} {% endblock %});
+
+{% block left_button %}
+{% ifequal poll.sequence  0 %}
+ 
+{% else %}
+<div class="izq" onClick="javascript:window.location='/polls/{{ person_id }}/{{ poll.sequence|add:"-1" }}/'">
+</div>
+{% endifequal  %}
+
+{% endblock %}
+
+ 
+
+{% block detail_body %}
+
+{% if poll.has_photo %}
+<div id="rows_imagen">
+	<div id="choices">
+		<img class="unaImagen" src="{{poll.get_photo_url}}" width="209" height="196" alt="{{ poll.question }}" />						
+		<br/>
+		<span class="pregImagen">{{ poll.question}}</span>
+	</div>
+</div>	
+{% endif %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form id="voteForm" action="/polls/vote/" method="post">
+<input type="hidden" name="person_id" value="{{ person_id }}"/>
+<input type="hidden" name="poll_id" value="{{ poll.id }}"/>
+<input type="hidden" name="selected_choice" value="-1"/>
+<ul>
+{% for choice in choices %}
+<div id="rows" onclick="select_choice({{ choice.id }});">				
+	<li id="choices1">{{ choice.choice }}</li>
+
+</div>
+{% endfor %}
+</ul>
+</form>
+
+{% endblock %}
+
+{% block question %}
+
+{{ poll.question }}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base-result.html" %}
+
+{% block peppers %} {{ answer.poll.sequence|add:"1" }} {% endblock %});
+
+{% block right_button %}
+<div class="der" onClick="javascript:window.location={% if is_last %}'/polls/thanks/{{ answer.person.id }}/'{% else %}'/polls/{{ answer.person.id }}/{{ answer.poll.sequence|add:"1" }}'{% endif %}"></div>
+{% endblock %}
+
+
+{% block result_detail %}
+{% for key in stat %}
+
+	<div id="result_{{ forloop.counter }}" onClick="javascript:window.location={% if is_last %}'/polls/thanks/{{ answer.person.id }}/'{% else %}'/polls/{{ answer.person.id }}/{{ answer.poll.sequence|add:"1" }}{% endif %}'" >
+		<div class="seleccionado">{% ifequal key.1.0 answer.choice %}{% endifequal %}</div>
+		<div id="choices">
+			<div class="result"></div>
+			<div>
+				<div class="persona">
+				</div>
+				<div class="persona2">
+				</div>
+				<div class="barra" rel="{{ key.1.1|floatformat }}"  {% ifequal key.1.0 answer.choice %}name="seleccionUsuario"{% endifequal %}>
+				</div>
+			</div>
+			<br/>
+			<span class="resp">{{ key.1.0}}</span>
+		</div>
+		<div class="seleccionadoAbajo">{% ifequal key.1.0 answer.choice %}<img src="/static_media/img/flechitaAbajo.png" width="42" height="50"/>{% endifequal %}</div>
+	</div>	
+
+
+{% endfor %}
+
+{% endblock %}
+{% block result %}
+{% for key in stat %}
+{% ifequal key.1.0 answer.choice %}El {{ key.1.1|floatformat }} % respondio como vos{% endifequal %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Wikilife | Keep it together</title>
+<link type="image/x-icon" rel="shorcut icon" href="http://hlogr.org/v1/wp-content/themes/default/images/favicon.ico" />
+<link rel="stylesheet" href="/static_media/style.css" type="text/css" media="screen" />
+<link rel='index' title='Wikilife' href='http://wikilife.org' />
+<script src="/static_media/jquery-1.4.2.min.js"  type="text/javascript"></script>
+<script src="/static_media/jquery.effects.core.js"  type="text/javascript"></script>
+
+
+{% block head %}{% endblock %}
+</head>
+
+<body>
+	{% block main_content %}
+	<div id="bannerHome">
+		<div id="innerBannerHome">
+			<div id="header">
+				<!-- -->
+				{% block left_button %} {% endblock %}
+				{% block logo %}<div class="cent"><img src="/static_media/img/header.png" width="970px" height="100px" alt="Wikilife" /></div-->{% endblock %}
+				{% block right_button %} {% endblock %}
+				<!-- -->
+			</div>
+			<div id="content">
+				{% block script %} {% endblock %}
+				{% block content %}{% endblock %}
+			</div>
+			<div id="foot">
+				<!-- -->
+				<!--  div id="pimientos">
+				</div-->
+				<!-- -->
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+</body>
+</html>

@@ -1,4 +1,4 @@
-from questions.models import Poll, Choice, Chart
+from questions.models import Poll, Choice, Chart, Contact
 from django.contrib import admin
 
 class ChoiceInline(admin.TabularInline):
@@ -22,3 +22,4 @@ class ChartAdmin(admin.ModelAdmin):
 
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Chart, ChartAdmin)
+admin.site.register(Contact)

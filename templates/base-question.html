@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
 	
 	var cargarPimientos = function(pasoActual){
 		/*Control por si ingresan un valor menor que 1 o mayor que el total de pasos*/
-		total = 15
+		total = 12;
 		if(pasoActual < 0 || pasoActual > total)
 			pasoActual = 0;
 		
@@ -26,14 +26,14 @@ jQuery(document).ready(function($){
 		//primero dibujo los pimientos grisados
 		for(i=0; i<pasoActual; i++){
 			
-			$("#pimientos").append('<img src="/static_media/img/pimiento_gris.png" width="58" height="50" />').hide().fadeIn();
+			$("#pimientos").append('<img src="/static_media/img/bola_on.png" width="19" height="19" />').hide().fadeIn();
 			
 		}
 		
 		//segundo dibujo los pimientos rojos
 		for(i=0; i<cantPasosFaltantes; i++){
 			
-			$("#pimientos").append('<img src="/static_media/img/pimiento_rojo.png" width="58" height="50" />').hide().fadeIn();
+			$("#pimientos").append('<img src="/static_media/img/bola_off.png" width="19" height="19" />').hide().fadeIn();
 		}
 			
 	

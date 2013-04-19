@@ -4,6 +4,14 @@ from django.db import models
 class Person(models.Model):
     create_time = models.DateTimeField("created on", auto_now_add=True)
     source = models.CharField(max_length=200, null=True, blank=True)    
+
+class Contact(models.Model):
+    email =  models.CharField(max_length=200)
+    person = models.ForeignKey(Person)
+    create_time = models.DateTimeField("created on", auto_now_add=True)
+
+    def __unicode__(self):
+        return self.email
     
 class Poll(models.Model):
     question = models.CharField(max_length=200)

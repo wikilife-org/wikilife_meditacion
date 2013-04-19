@@ -28,10 +28,11 @@ def detail(request, person_id, seq):
 
 def thanks(request, person_id):
     answers = Response.objects.all().filter(person=person_id)
+    person = get_object_or_404(Person, pk=person_id)
     for a in answers:
         a.stat = answer_stats(a)
 
-    return render_to_response('questions/thanks.html', {'answers':answers}, context_instance=RequestContext(request))
+    return render_to_response('questions/thanks.html', {'answers':answers, "person":person}, context_instance=RequestContext(request))
 
 def answer_stats(answer):
     stat = Response.objects.filter(poll=answer.poll).values('choice').annotate(total=Count('id'))
@@ -120,6 +121,14 @@ def vote(request):
             #return HttpResponseRedirect(reverse('questions.views.detail', args=(person.id, p.sequence+1,)))
         return HttpResponseRedirect(reverse('questions.views.result', args=(answer.id,)))
 
+def email(request):
+    email = request.POST['email']
+    person = get_object_or_404(Person, pk=request.POST['person_id'])
+    
+    contact = Contact(email=email, person=person)
+    contact.save()
+    return HttpResponseRedirect(reverse('questions.views.index'))
+    
 def charts(request):
     chart_list = Chart.objects.all().order_by('title')
     return render_to_response('questions/charts.html', {'charts': chart_list}, )

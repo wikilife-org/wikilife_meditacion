@@ -15,7 +15,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 	
 }
 #bannerHomeFin {
-	background-image: url(/static_media/img/fondo_degrade.jpg);
+	background-image: url(/static_media/img/fondo_euge.png);
 	/*background-position: 40px 0px;*/
 	background-repeat: no-repeat;
 	width:   969px;
@@ -26,7 +26,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 
 }
 #bannerHomePortada {
-	background-image: url(/static_media/img/portada.jpg);
+	background-image: url(/static_media/img/portada.png);
 	background-repeat: no-repeat;
 	width:   969px;
 	height:  708px;
@@ -82,13 +82,14 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 
 }
 #question{
-	font-family: Helvetica;
-	font-weight: 900;	
-	font-size: 32px;
-	text-align:center;
-	top:15px;
-	position:absolute;
-	width: 890px;
+   font-family: Helvetica;
+    font-size: 32px;
+    font-weight: 900;
+    margin-left: 140px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    width: 569px;
 	
 }
 
@@ -129,12 +130,12 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 }
 
 #choices {
-	font-family: Helvetica;
-	font-weight: bold;
-	color: #2D3D61;
-	font-size: 24px;
-	cursor:pointer;
-	text-align:center;
+    color: #6D6E71;
+    cursor: pointer;
+    font-family: Myriad Pro;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
 }
 
 #choices1{
@@ -685,32 +686,39 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 	width: 125px;
 	height: 30px;
 	white-space:pre-wrap;
-	color: #FFF;
+	color: #2D4760;
 	/*padding-right: 12px;
 	padding-left: 12px;*/
 	z-index: 99;
 }
 
 #saludoFinal{
-	font-family: Helvetica;
-	color: #fff;
-	position:absolute;
-	font-size: 32px;
-	top: 640px;
-	left: 200px;
+    color: #6D6E71;
+    font-family: Myriad Pro;
+    font-size: 26px;
+    left: 52px;
+    position: absolute;
+    top: 20px;
+    width: 700px;
 
+}
+#pimientos{
+	    left: 325px;
+    opacity: 0.87;
+    position: absolute;
+    top: 42px;
 }
 
 #botonEntrar {
-	background-image: url(/static_media/img/entrar.png);
-	background-position: 0px -120px;
-	background-repeat: no-repeat;	
-	width: 214px;
-	height: 118px;
-	position: absolute;
-	top: 480px;
-	left: 670px;
-	cursor:pointer;
+    background-image: url("/static_media/img/empezar.png");
+    background-position: 0 -110px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 118px;
+    left: 594px;
+    position: absolute;
+    top: 606px;
+    width: 280px;
 }
 #botonEntrar:hover {
 
@@ -824,4 +832,21 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 	float:left;
 	top: 0px;
 	margin: 13px 0 0 13px;
+}
+
+#email{
+	   left: 80px;
+    position: absolute;
+    top: 200px;
+	
+}
+
+#email input[type="text"]
+{
+  color: #6D6E71;
+    font-family: Myriad Pro;
+    font-size: 46px;
+    height: 80px;
+    margin-left: -4px;
+    width: 700px;
 }

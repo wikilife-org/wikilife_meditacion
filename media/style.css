@@ -722,7 +722,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 }
 #botonEntrar:hover {
 
-	background-position: 0px 0px;
+	background-position:  80px -17px;
 
 }
 

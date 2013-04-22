@@ -711,19 +711,18 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 
 #botonEntrar {
     background-image: url("/static_media/img/empezar.png");
-    background-position: 0 -110px;
+    background-position: -15px -108px;
     background-repeat: no-repeat;
     cursor: pointer;
-    height: 118px;
-    left: 594px;
+    height: 100px;
+    left: 607px;
     position: absolute;
-    top: 606px;
-    width: 280px;
+    top: 553px;
+    width: 294px;
+
 }
 #botonEntrar:hover {
-
-	background-position:  80px -17px;
-
+    background-position: 64px -14px;
 }
 
 .der {

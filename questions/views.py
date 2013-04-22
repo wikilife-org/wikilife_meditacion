@@ -55,7 +55,7 @@ def sortByChoice(choices):
 
 def sortByPercent(choices):
     print "hola3"
-    decoradas = [( x[0] == None and "1" or x[1], x) for x in choices]
+    decoradas = [( x[1], x) for x in choices]
     decoradas.sort()
     return decoradas
 
@@ -73,24 +73,32 @@ def result(request, response_id):
         c = Choice.objects.get(pk=s['choice'])
         stat_percent.append((c,t)) 
     
+    user_choice = None
+    for r in stat_percent:
+        if r[0].pk ==  answer.choice.pk:
+            user_choice = r
+            
     result = []
     if len(stat_percent) > 4:
-        stat_percent = sortByPercent(stat_percent)
-        stat_percent = stat_percent[:4]
-        user_choice = None
-        for s in stat_percent:
-            if s[0] == answer.choice:
-                user_choice = s
-        if user_choice:
-            stat_percent[3] = user_choice
+        stat_percent1 = sortByPercent(stat_percent)
+        stat_percent1 = stat_percent1[:4]
+        stat_percent1.reverse()
+        
+        is_there = False
+        for s in stat_percent1:
+            if s[1][0].pk ==  answer.choice.pk:
+                is_there = True
+                break
             
-        for s in stat_percent:
+        if  not is_there:
+            stat_percent1[3] = (0,user_choice)
+            
+        for s in stat_percent1:
              result.append(s[1])
     else:
         result = stat_percent
-        
-    print result
-    stat_percent = sortByChoice(result)
+
+    stat_percent1 = sortByChoice(result)
     
     
     polls_count = Poll.objects.count()
@@ -98,7 +106,7 @@ def result(request, response_id):
         is_last = True
     else:
         is_last = False
-    return render_to_response('questions/result.html', {'stat':stat_percent, 'answer':answer, 'is_last':is_last}, context_instance=RequestContext(request))
+    return render_to_response('questions/result.html', {'stat':stat_percent1, 'answer':answer, 'is_last':is_last}, context_instance=RequestContext(request))
 
 def vote(request):
     p = get_object_or_404(Poll, pk=request.POST['poll_id'])

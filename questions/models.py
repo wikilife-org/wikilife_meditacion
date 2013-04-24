@@ -34,6 +34,7 @@ class Poll(models.Model):
 
 class Choice(models.Model):
     poll = models.ForeignKey(Poll)
+    sequence = models.IntegerField()
     choice = models.CharField(max_length=200)
     photo = models.ImageField(upload_to = 'choice/', null=True, blank=True)
 
@@ -58,4 +59,5 @@ class Chart(models.Model):
     poll1 = models.ForeignKey(Poll, related_name="chart_poll1")
     poll2 = models.ForeignKey(Poll, related_name="chart_poll2")
     published = models.BooleanField()
+    pie_chart = models.BooleanField()
     create_time = models.DateTimeField("created on", auto_now_add=True)

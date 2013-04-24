@@ -21,7 +21,7 @@
 	<div id="choices">
 		<img class="unaImagen" src="{{poll.get_photo_url}}" width="209" height="196" alt="{{ poll.question }}" />						
 		<br/>
-		<span class="pregImagen">{{ poll.question}}</span>
+		<span class="pregImagen">{{ poll.question|escape}}</span>
 	</div>
 </div>	
 {% endif %}
@@ -46,6 +46,6 @@
 
 {% block question %}
 
-{{ poll.question }}
+{{ poll.question|safe}}
 
 {% endblock %}

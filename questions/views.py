@@ -23,7 +23,7 @@ def start(request):
 
 def detail(request, person_id, seq):
     p = get_object_or_404(Poll, sequence=seq)
-    choices = p.choice_set.all().order_by('choice')
+    choices = p.choice_set.all().order_by('sequence')
     return render_to_response('questions/detail.html', {'person_id':person_id, 'poll': p, 'choices':choices}, context_instance=RequestContext(request))
 
 def thanks(request, person_id):
@@ -174,7 +174,10 @@ def chart(request, chart_id):
         for j in res[i]:
             res[i][j] = float(res[i][j]) / respondents * 100
         
-    return render_to_response('questions/chart.html', {'chart':chart, 'stat':res, 'respondents':respondents}, context_instance=RequestContext(request))
-        
+    if not chart.pie_chart:
+        return render_to_response('questions/chart.html', {'chart':chart, 'stat':res, 'respondents':respondents}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('questions/pie_chart.html', {'chart':chart, 'stat':res, 'respondents':respondents}, context_instance=RequestContext(request))
+
         
     

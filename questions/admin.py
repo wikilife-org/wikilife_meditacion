@@ -15,9 +15,9 @@ class PollAdmin(admin.ModelAdmin):
 
 class ChartAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,  {'fields': ['title','poll1', 'poll2', 'published']}),
+        (None,  {'fields': ['title','poll1', 'poll2', 'published', 'pie_chart']}),
     ]
-    list_display = ('title', 'poll1', 'poll2')
+    list_display = ('title', 'poll1', 'poll2', 'pie_chart')
     search_fields = ['title']
 
 admin.site.register(Poll, PollAdmin)

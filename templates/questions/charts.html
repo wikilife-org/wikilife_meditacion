@@ -2,9 +2,6 @@
 
 {% block content %}
 
-<h2>Hlogr Charts</h2>
-<br/>
-<br/>
 {% for chart in charts %}
 <h3><a href="/polls/chart/{{chart.id}}/">{{ chart.title}}</a></h3>
 {% endfor %}

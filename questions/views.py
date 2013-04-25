@@ -34,6 +34,9 @@ def thanks(request, person_id):
 
     return render_to_response('questions/thanks.html', {'answers':answers, "person":person}, context_instance=RequestContext(request))
 
+def legal(request):
+     return render_to_response('questions/legal.html')
+ 
 def answer_stats(answer):
     stat = Response.objects.filter(poll=answer.poll).values('choice').annotate(total=Count('id'))
     total = 0 

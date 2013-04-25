@@ -12,8 +12,6 @@
 
 {% endblock %}
 
- 
-
 {% block detail_body %}
 
 {% if poll.has_photo %}
@@ -31,16 +29,38 @@
 <input type="hidden" name="person_id" value="{{ person_id }}"/>
 <input type="hidden" name="poll_id" value="{{ poll.id }}"/>
 <input type="hidden" name="selected_choice" value="-1"/>
+
+
 {% for choice in choices %}
 <div id="columns_{{ forloop.counter }}" onclick="select_choice({{ choice.id }});">
 
 <div id="choices1">						
-	<span class="pregFila">{{ choice.choice }}</span>
+	<span id="r_{{ forloop.counter }}" class="pregFila">{{ choice.choice }}</span>
 </div>
 
 </div>
-{% endfor %}
 </form>
+{% endfor %}
+
+<script type="text/javascript">
+{% for choice in choices %}
+	var l = $('#r_{{ forloop.counter }}').text().length;
+	if (l <=4){
+		$('#r_{{ forloop.counter }}').css('font-size', '100px');
+	}else{
+		if (l <=7){
+			$('#r_{{ forloop.counter }}').css('font-size', '60px');
+		}else{
+			if (l <=14){
+				$('#r_{{ forloop.counter }}').css('font-size', '40px');
+			}
+		}
+	}
+	
+	{% endfor %}	
+	
+
+</script>
 
 {% endblock %}
 

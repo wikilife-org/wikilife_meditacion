@@ -2,7 +2,7 @@ function FoodPieChart (values) {
 
     this.piechartRadius = 88;
     this.margin = 50;
-    this.colors = [ "#3e8087", "#63cece", "#a8fffd", "#ffff00", "#f08a00", "#e75113" ];
+    this.colors = [ "#908fb3", "#63cece", "#a8fffd", "#ffff00", "#f08a00", "#e75113" ];
     
     this.amount = values.length;
 

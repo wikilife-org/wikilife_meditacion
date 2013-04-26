@@ -858,7 +858,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 #pieChart{
     left: -30px;
     position: absolute;
-    top: 40px;
+    top: 25px;
     width: 300px;
 }
 #pieRef_1{
@@ -866,35 +866,41 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     position: absolute;
     top: 104px;
      width: 600px;
-     background-color: #283240;
+     background-color: #5d6475;
 }
 #pieRef_2{
     left: 260px;
     position: absolute;
     top: 381px;
      width: 600px;
-     background-color: #283240;
+     background-color: #5d6475;
 }
 
 #statRef_1{
-	position: absolute;
-    top: 40px;
-        color: #2D3D61;
+   color: #FFFFFF;
     font-family: Myriad Pro;
-    font-size: 22px;
+    font-size: 25px;
+    left: 64px;
+    position: absolute;
+    top: 148px;
+    z-index: 10;
 	}
 #statRef_2{
-    color: #2D3D61;
+  color: #FFFFFF;
     font-family: Myriad Pro;
-    font-size: 22px;
+    font-size: 25px;
+    left: 79px;
     position: absolute;
-    top: 330px;
+    top: 429px;
+    z-index: 10;
 }
 
-
+div#pieChart canvas {
+    background: url("/static_media/img/circle-outer.png") repeat scroll 0 0 transparent;
+}
 .top1 {
 	font-family: Myriad Pro;
-	color: #3e8087;
+	color: #908fb3;
 }
 
 .top1 span{

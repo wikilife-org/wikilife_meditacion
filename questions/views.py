@@ -174,9 +174,20 @@ def chart(request, chart_id):
         respondents += row[2]
 
     for i in res.keys():
+        values = []
+        result = []
+        total = 0
         for j in res[i]:
-            res[i][j] = float(res[i][j]) / respondents * 100
+            value = float(res[i][j]) / respondents * 100
+            res[i][j] = value
+            values.append(value)
+            total = total + value
+        for v in values:
+            result.append((v * 100 / total))
         
+        res[i]["values"] = result
+    print res
+    
     if not chart.pie_chart:
         return render_to_response('questions/chart.html', {'chart':chart, 'stat':res, 'respondents':respondents}, context_instance=RequestContext(request))
     else:

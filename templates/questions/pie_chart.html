@@ -2,15 +2,36 @@
 
 {% block head %}
 <script type="text/javascript" src="/static_media/kinetic-v4.3.0.min.js"></script>
-
+<script type="text/javascript" src="/static_media/PieChart.js"></script>
 
 {% endblock %}
 
 {% block content %}
+
+
+<div class="label">{{ chart.title }} </div>
+
+{% for v in stat.items %}
 <div id="dashboard">
 	<div style="clear: both"></div>
+	<span id="statRef_{{ forloop.counter }}">{{v.0}}</span>
 	<div id="pieChart"></div>
+	<div id="pieRef_{{ forloop.counter }}">
+	<ul>
+	{% for s in v.1.items %}
+	{% ifnotequal s.0 "values"%}
+	<li class="top{{ forloop.counter }}">{{s.0}}</li>
+	{% endifnotequal %}
+	{%endfor%}
+	
+	</ul>
+	</div>
 </div>
 
-<script type="text/javascript" src="/static_media/PieChart.js"></script>
+
+<script type="text/javascript">
+
+    new FoodPieChart({{v.1.values}});
+    </script>
+{% endfor %}
 {% endblock %}

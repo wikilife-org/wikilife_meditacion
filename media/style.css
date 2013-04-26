@@ -854,3 +854,68 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     margin-left: -31px;
     width: 700px;
 }
+
+#pieChart{
+    left: -30px;
+    position: absolute;
+    top: 40px;
+}
+#pieRef_1{
+    left: 260px;
+    position: absolute;
+    top: 104px;
+     width: 600px;
+     background-color: #283240;
+}
+#pieRef_2{
+    left: 260px;
+    position: absolute;
+    top: 381px;
+     width: 600px;
+     background-color: #283240;
+}
+
+#statRef_1{
+	position: absolute;
+    top: 40px;
+        color: #2D3D61;
+    font-family: Myriad Pro;
+    font-size: 30px;
+	}
+#statRef_2{
+    color: #2D3D61;
+    font-family: Myriad Pro;
+    font-size: 30px;
+    position: absolute;
+    top: 300px;
+}
+
+
+.top1 {
+	font-family: Myriad Pro;
+	color: #3e8087;
+}
+
+.top2 {
+	font-family: Myriad Pro;
+	color: #63cece;
+}
+
+.top3 {
+	font-family: Myriad Pro;
+	color: #a8fffd;
+}
+
+.top4 {
+	font-family: Myriad Pro;
+	color: #ffff00;
+}
+
+.top5 {
+	font-family: Myriad Pro;
+	color: #f08a00;
+}
+.top6 {
+	font-family: Myriad Pro;
+	color: #e75113;
+}

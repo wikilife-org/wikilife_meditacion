@@ -87,4 +87,4 @@ FoodPieChart.prototype._calculateYforAngle = function (angle) {
             + this.piechartRadius;
 };
 
-new FoodPieChart([30,20,5,5,30,10]);
+

@@ -43,20 +43,18 @@ jQuery(document).ready(function($){
 {% endblock %}
 
 {% block right_button %}
-<div class="der" onClick="sendEmail()"></div>
+<div class="der" onClick='javascript:window.location="/polls/"'></div>
 {% endblock %}
 
  {% block content %}
 <div id="innerBannerHome">					
-<div id="saludoFinal">Si quer&eacute;s participar en programas de investigaci&oacute;n serios sobre estos temas en
-el futuro, por favor dejanos tu email. Muchas gracias por responder las
-preguntas!!</div>
+<div id="saludoFinal"> Muchas gracias por responder las preguntas!!</div>
 </div>
 <div id="email">
-<form id="emailForm" action="/polls/email/" method="post">
+<!-- form id="emailForm" action="/polls/email/" method="post">
 <input type="text" name="email" value=""/>
 <input type="hidden" name="person_id" value="{{ person.id }}"/>
-</form>
+</form -->
 </div>
  {% endblock %} 
 

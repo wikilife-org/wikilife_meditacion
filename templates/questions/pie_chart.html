@@ -18,11 +18,14 @@
 	<div id="pieChart"></div>
 	<div id="pieRef_{{ forloop.counter }}">
 	<ul>
-	{% for s in v.1.items %}
-	{% ifnotequal s.0 "values"%}
-	<li class="top{{ forloop.counter }}">{{s.0}}</li>
-	{% endifnotequal %}
-	{%endfor%}
+
+	<li class="top1">{{v.1.items.0.0}} {{v.1.values.0}}%</li>
+	<li class="top2">{{v.1.items.1.0}} {{v.1.values.1}}%</li>
+	<li class="top3">{{v.1.items.2.0}} {{v.1.values.2}}%</li>
+	<li class="top4">{{v.1.items.3.0}} {{v.1.values.3}}%</li>
+	<li class="top5">{{v.1.items.4.0}} {{v.1.values.4}}%</li>
+	<li class="top6">{{v.1.items.5.0}} {{v.1.values.5}}%</li>
+
 	
 	</ul>
 	</div>

@@ -177,13 +177,16 @@ def chart(request, chart_id):
         values = []
         result = []
         total = 0
+        
         for j in res[i]:
             value = float(res[i][j]) / respondents * 100
             res[i][j] = value
             values.append(value)
             total = total + value
-        for v in values:
-            result.append((v * 100 / total))
+            
+        if total != 0:
+            for v in values:
+                result.append((v * 100 / total))
         
         res[i]["values"] = result
     print res

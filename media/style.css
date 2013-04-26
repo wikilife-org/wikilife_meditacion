@@ -919,3 +919,10 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 	font-family: Myriad Pro;
 	color: #e75113;
 }
+
+.label {
+   color: #2D3D61;
+    font-family: Myriad Pro;
+    font-size: 18px;
+    text-align: center;
+}

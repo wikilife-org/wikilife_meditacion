@@ -9,7 +9,7 @@
 {% block content %}
 
 
-<div class="label">{{ chart.title }} </div>
+<div class="labelp">{{ chart.title }} </div>
 
 {% for v in stat.items %}
 <div id="dashboard">
@@ -19,12 +19,12 @@
 	<div id="pieRef_{{ forloop.counter }}">
 	<ul>
 
-	<li class="top1">{{v.1.items.0.0}} {{v.1.values.0}}%</li>
-	<li class="top2">{{v.1.items.1.0}} {{v.1.values.1}}%</li>
-	<li class="top3">{{v.1.items.2.0}} {{v.1.values.2}}%</li>
-	<li class="top4">{{v.1.items.3.0}} {{v.1.values.3}}%</li>
-	<li class="top5">{{v.1.items.4.0}} {{v.1.values.4}}%</li>
-	<li class="top6">{{v.1.items.5.0}} {{v.1.values.5}}%</li>
+	<li class="top1"><span>{{v.1.items.0.0}} {{v.1.values.0}}%</span></li>
+	<li class="top2"><span>{{v.1.items.1.0}} {{v.1.values.1}}%</span></li>
+	<li class="top3"><span>{{v.1.items.2.0}} {{v.1.values.2}}%</span></li>
+	<li class="top4"><span>{{v.1.items.3.0}} {{v.1.values.3}}%</span></li>
+	<li class="top5"><span>{{v.1.items.4.0}} {{v.1.values.4}}%</span></li>
+	<li class="top6"><span>{{v.1.items.5.0}} {{v.1.values.5}}%</span></li>
 
 	
 	</ul>

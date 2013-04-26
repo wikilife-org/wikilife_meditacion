@@ -859,6 +859,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     left: -30px;
     position: absolute;
     top: 40px;
+    width: 300px;
 }
 #pieRef_1{
     left: 260px;
@@ -880,20 +881,25 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     top: 40px;
         color: #2D3D61;
     font-family: Myriad Pro;
-    font-size: 30px;
+    font-size: 22px;
 	}
 #statRef_2{
     color: #2D3D61;
     font-family: Myriad Pro;
-    font-size: 30px;
+    font-size: 22px;
     position: absolute;
-    top: 300px;
+    top: 330px;
 }
 
 
 .top1 {
 	font-family: Myriad Pro;
 	color: #3e8087;
+}
+
+.top1 span{
+	font-family: Myriad Pro;
+	color: #fff;
 }
 
 .top2 {
@@ -920,9 +926,34 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 	color: #e75113;
 }
 
-.label {
+
+.top2 span{
+	font-family: Myriad Pro;
+	color: #fff;
+}
+
+.top3 span{
+	font-family: Myriad Pro;
+	color: #fff;
+}
+
+.top4 span{
+	font-family: Myriad Pro;
+	color: #fff;
+}
+
+.top5 span{
+	font-family: Myriad Pro;
+	color: #fff;
+}
+.top6 span{
+	font-family: Myriad Pro;
+	color: #fff;
+}
+
+.labelp {
    color: #2D3D61;
     font-family: Myriad Pro;
-    font-size: 18px;
+    font-size: 24px;
     text-align: center;
 }

@@ -186,7 +186,7 @@ def chart(request, chart_id):
             
         if total != 0:
             for v in values:
-                result.append((v * 100 / total))
+                result.append(round(v * 100 / total, 2))
         
         res[i]["values"] = result
     print res

@@ -172,23 +172,34 @@ def chart(request, chart_id):
         c1 = Choice.objects.get(pk=row[1])
         res[c2][c1] = row[2]
         respondents += row[2]
-
+        p = {}
     for i in res.keys():
+        print i
+        p[i] ={}
         values = []
-        result = []
+       
         total = 0
         
         for j in res[i]:
-            value = float(res[i][j]) / respondents * 100
+            print j
+            result = []
+            if respondents:
+                value = float(res[i][j]) / respondents * 100
+            else:
+                value = 0.0
             res[i][j] = value
+            print res[i][j]
             values.append(value)
             total = total + value
             
-        if total != 0:
-            for v in values:
-                result.append(round(v * 100 / total, 2))
+            if chart.pie_chart:
+                for v in values:
+                    if total:
+                        res[i][j] = round(v * 100 / total, 3)
+                    else:
+                        res[i][j] = 0.0
         
-        res[i]["values"] = result
+        p[i]["values"] = result
     print res
     
     if not chart.pie_chart:

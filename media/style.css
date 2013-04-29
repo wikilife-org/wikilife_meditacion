@@ -864,14 +864,14 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 #pieRef_1{
     left: 260px;
     position: absolute;
-    top: 104px;
+    top: 70px;
      width: 600px;
      background-color: #5d6475;
 }
 #pieRef_2{
     left: 260px;
     position: absolute;
-    top: 381px;
+    top: 340px;
      width: 600px;
      background-color: #5d6475;
 }

@@ -195,7 +195,7 @@ def chart(request, chart_id):
             if chart.pie_chart:
                 for v in values:
                     if total:
-                        res[i][j] = round(v * 100 / total, 3)
+                        res[i][j] = round(v * 100 / total, 1)
                     else:
                         res[i][j] = 0.0
         

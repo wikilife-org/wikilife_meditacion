@@ -167,39 +167,42 @@ def chart(request, chart_id):
     cursor.execute("select rp2.choice_id, rp1.choice_id, count(rp1.person_id) from questions_response as rp1 left join questions_response as rp2 on rp1.person_id=rp2.person_id where rp1.poll_id=%s and rp2.poll_id=%s  group  by 1,2 order by 1,2", [poll1.id, poll2.id,])
     query_result = cursor.fetchall()
     respondents = 0
+
+    p = {}
+        
     for row in query_result:
         c2 = Choice.objects.get(pk=row[0])
         c1 = Choice.objects.get(pk=row[1])
         res[c2][c1] = row[2]
         respondents += row[2]
-        p = {}
+        
+    
+    totals = {}
+        
     for i in res.keys():
-        print i
-        p[i] ={}
-        values = []
-       
-        total = 0
+        users = 0
+        for j in res[i]:
+            users += float(res[i][j])
+        
+        totals[i] = users
         
         for j in res[i]:
-            print j
-            result = []
-            if respondents:
-                value = float(res[i][j]) / respondents * 100
-            else:
-                value = 0.0
-            res[i][j] = value
-            print res[i][j]
-            values.append(value)
-            total = total + value
-            
+
             if chart.pie_chart:
-                for v in values:
-                    if total:
-                        res[i][j] = round(v * 100 / total, 1)
-                    else:
-                        res[i][j] = 0.0
-        
-        p[i]["values"] = result
+
+                if totals[i]:
+                    res[i][j] = round(float(res[i][j]) / totals[i] * 100, 1)
+                else:
+                    res[i][j] = 0.0
+                    
+            else:
+
+                result = []
+                if respondents:
+                    res[i][j] = float(res[i][j]) / respondents * 100
+                else:
+                    res[i][j] = 0.0
+                
     print res
     
     if not chart.pie_chart:

@@ -780,7 +780,8 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 }
 
 #chart table{
-}
+
+	}
 
 #chart .label {
     color: #2D3D61;

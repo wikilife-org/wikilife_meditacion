@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 
-
 {% block main_content %}
-<div id="bannerHome">
-
-<div id="chart">
+<div id="bannerHomeTable">
+<div class="cent">
+<img width="100%" height="100px" alt="Wikilife" src="/static_media/img/header.png">
+<!-- -->
+<div id="pimientos"> </div>
+</div>
+<div id="chartTable">
 
 
 <div class="label">{{ chart.title }} </div>
@@ -13,20 +16,19 @@
 	<tr>
 		<td><!-- {{ chart.poll2.question }} --></td>
 {% for r in stat.items.0.1.items %}
-		<td align="center">
-			<div class="chart_header_block"><br/><br/>{{ r.0 }}</div>
+		<td  class="stat_x" align="center">
+			{{ r.0 }}
 		</td>		
 {% endfor %}
 	</tr>
 	
 {% for s in stat.items %}
 <tr>
-	<td width="20">
-		<div class="chart_header_text_side"></div>
-		<div class="chart_header_block_side"><br/><br/>{{ s.0 }}</div>
+	<td class="stat_y">
+		{{ s.0 }}
 	</td>
 {% for c in s.1.items %}
-		<td class="stat">{{ c.1|floatformat:0}}%</td>
+		<td class="stat_{{ forloop.parentloop.counter }}">{{ c.1|floatformat:0}}%</td>
 {% endfor %}
 </tr>
 {% endfor %}

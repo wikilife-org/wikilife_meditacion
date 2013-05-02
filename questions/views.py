@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.db.models import Avg, Max, Min, Count
 from django.db import connection, transaction
 from collections import defaultdict
+from random import randint
 
 from questions.models import *
 
@@ -158,9 +159,11 @@ def chart(request, chart_id):
         for y in poll2.choice_set.all():
             res[x][y] = 0
     """    
-    for x in poll2.choice_set.all():
+    for x in poll2.choice_set.all().order_by("sequence"):
+        print x
         res[x] = {}
-        for y in poll1.choice_set.all():
+        for y in poll1.choice_set.all().order_by("sequence"):
+            print y
             res[x][y] = 0
 
     cursor = connection.cursor()
@@ -203,12 +206,13 @@ def chart(request, chart_id):
                 else:
                     res[i][j] = 0.0
                 
-    print res
+    
+    next = randint(8,14)
     
     if not chart.pie_chart:
-        return render_to_response('questions/chart.html', {'chart':chart, 'stat':res, 'respondents':respondents}, context_instance=RequestContext(request))
+        return render_to_response('questions/chart.html', {'chart':chart, 'stat':res, 'respondents':respondents, "next":next}, context_instance=RequestContext(request))
     else:
-        return render_to_response('questions/pie_chart.html', {'chart':chart, 'stat':res, 'respondents':respondents}, context_instance=RequestContext(request))
+        return render_to_response('questions/pie_chart.html', {'chart':chart, 'stat':res, 'respondents':respondents, "next":next}, context_instance=RequestContext(request))
 
         
     

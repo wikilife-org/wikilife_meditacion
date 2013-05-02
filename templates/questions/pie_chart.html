@@ -4,9 +4,19 @@
 <script type="text/javascript" src="/static_media/kinetic-v4.3.0.min.js"></script>
 <script type="text/javascript" src="/static_media/PieChart.js"></script>
 
+
+<script type="text/javascript">
+setTimeout(function(){window.location='/polls/chart/{{ next }}/';}, 30000);
+</script>
+
+
 {% endblock %}
 
-{% block content %}
+{% block main_content %}
+<div id="bannerHomeTable2">
+<div class="cent">
+<img width="100%" height="100px" alt="Wikilife" src="/static_media/img/header.png">
+</div>
 
 
 <div class="labelp">{{ chart.title }} </div>
@@ -29,6 +39,7 @@
 	
 	</ul>
 	</div>
+	
 </div>
 
 

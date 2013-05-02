@@ -783,6 +783,10 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 	height: 100%;
 }
 
+#bannerHomeTable2 {
+	background: url("/static_media/img/background.png") repeat scroll 0 0 transparent;
+	height: 770px;
+}
 
 #chartTable {
     margin-top: 50px;
@@ -983,42 +987,45 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
 }
 
 #pieChart{
-    left: -30px;
+    left: 21px;
     position: absolute;
-    top: 25px;
+    top: 175px;
     width: 300px;
 }
 #pieRef_1{
-    left: 260px;
+    background-color: #5D6475;
+    font-size: 19px;
+    left: 400px;
     position: absolute;
-    top: 70px;
-     width: 600px;
-     background-color: #5d6475;
+    top: 224px;
+    width: 740px;
 }
 #pieRef_2{
-    left: 260px;
+    background-color: #5D6475;
+    left: 403px;
     position: absolute;
-    top: 340px;
-     width: 600px;
-     background-color: #5d6475;
+    top: 513px;
+    font-size: 19px;
+    width: 740px;
 }
 
 #statRef_1{
-   color: #FFFFFF;
+    color: #FFFFFF;
     font-family: Myriad Pro;
     font-size: 25px;
-    left: 64px;
+    left: 114px;
     position: absolute;
-    top: 148px;
+    top: 295px;
     z-index: 10;
-	}
+}
+	
 #statRef_2{
-  color: #FFFFFF;
+    color: #FFFFFF;
     font-family: Myriad Pro;
     font-size: 25px;
-    left: 79px;
+    left: 128px;
     position: absolute;
-    top: 429px;
+    top: 572px;
     z-index: 10;
 }
 
@@ -1085,8 +1092,9 @@ div#pieChart canvas {
 }
 
 .labelp {
-   color: #2D3D61;
+    color: #2D3D61;
     font-family: Myriad Pro;
-    font-size: 24px;
+    font-size: 25px;
+    margin-top: 26px;
     text-align: center;
 }

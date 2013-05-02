@@ -44,13 +44,42 @@
 
 <script type="text/javascript">
 {% for choice in choices %}
-	var l = $('#r_{{ forloop.counter }}').text().length;
+	var text = $('#r_{{ forloop.counter }}').text()
+	var l = text.length;
 	if (l <=4){
 		$('#r_{{ forloop.counter }}').css('font-size', '100px');
 	}else{
-		if (l <=7){
-			$('#r_{{ forloop.counter }}').css('font-size', '60px');
+		if (l <= 13){
+			$('#r_{{ forloop.counter }}').css('line-height', '140px').css('font-size', '40px');
+		}else{
+			if(l <=15){
+				$('#r_{{ forloop.counter }}').css('line-height', '60px').css('font-size', '35px');
+			}
+			else{
+				if (l <= 40){
+					$('#r_{{ forloop.counter }}').css('line-height', '50px').css('font-size', '30px');
+				}else{
+					if (l <= 63){
+						$('#r_{{ forloop.counter }}').css('line-height', '28px').css('font-size', '30px');
+					}else{
+						if (l <= 65){
+							$('#r_{{ forloop.counter }}').css('line-height', '28px').css('font-size', '25px');
+						}
+					}
+				}
+			}
 		}
+		if (text == "Hombre" || text == "Mujer"){
+			$('#r_{{ forloop.counter }}').css('font-size', '60px').css('line-height', '100px');
+		}
+	
+	if (text == "Otras"){
+		$('#r_{{ forloop.counter }}').css('line-height', '140px').css('font-size', '30px');
+	}
+	
+
+		
+
 	}
 	
 	{% endfor %}	

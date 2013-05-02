@@ -777,6 +777,12 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     top: 0;
 }
 
+#saludoFinal ul li{
+    font-size: 34px;
+    line-height: 47px;
+    padding-top: 60px;
+	
+}
 
 #bannerHomeTable {
 	background: url("/static_media/img/background.png") repeat scroll 0 0 transparent;

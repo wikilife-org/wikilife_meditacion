@@ -17,6 +17,11 @@ def index(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
     return render_to_response('questions/index.html', {'latest_poll_list': latest_poll_list}, )
 
+def list(request): 
+    latest_poll_list = Poll.objects.all().order_by('sequence')
+    print latest_poll_list
+    return render_to_response('questions/list.html', {'polls': latest_poll_list}, )
+
 def start(request):
     person = Person()
     person.save()
@@ -57,11 +62,96 @@ def sortByChoice(choices):
     decoradas.sort()
     return decoradas
 
+import copy
+import xlwt
+
+def xls(request):
+    
+    font1 = xlwt.Font()
+    font1.name = "Arial"
+    font1.height = 280
+    font1.colour_index = 0
+    font1.bold = False
+    
+    badBG = xlwt.Pattern()
+    badBG.pattern = badBG.SOLID_PATTERN
+    badBG.pattern_fore_colour = 3
+    
+    style1 = xlwt.XFStyle()
+    style1.font = font1
+    style1.Pattern = badBG
+    
+    polls = Poll.objects.all().order_by('sequence')
+    
+    result = []
+    for p in polls:
+        p_dict = {}
+        p_dict["question"] = p.question.replace("</strong>", "").replace("<strong>", "")
+        
+        choices = {}
+        for c in p.choice_set.all().order_by('sequence'):
+            choices_dict = {}
+            choices_dict["text"] = c.choice
+            choices_dict["value"] = 0
+            choices[c.id] = choices_dict
+            
+        for c in p.choice_set.all().order_by('sequence'):
+            for r in Response.objects.filter(choice=c):
+                cc = copy.deepcopy(choices)
+                cc[c.id]["value"] = 1
+                p_dict[r.person.id] = cc
+        
+        result.append(p_dict)
+        
+    wb = xlwt.Workbook()
+    
+    for i, r in enumerate(result):
+        ws = wb.add_sheet("Pregunta Nro %s"%(i+1))
+        ws.write(0,0, r["question"], style1)
+        
+        a = 2
+        for key in r.keys():
+            print key
+            if key != "question":
+                a  = a +1
+                c_for_person = r[key]
+                ws.write(a,0, "persona id : %s" %key, style1)
+                b = 1
+                for choice_key in c_for_person.keys():
+                    if a ==3:
+                        ws.write(2,b, c_for_person[choice_key]["text"], style1)
+                    ws.write(a,b, c_for_person[choice_key]["value"], style1)
+                    b = b +1
+    wb.save("conciencia_stats.xls")
+    
+
 def sortByPercent(choices):
-    print "hola3"
+
     decoradas = [( x[1], x) for x in choices]
     decoradas.sort()
     return decoradas
+
+
+def result_total(request, poll_id):
+    poll = get_object_or_404(Poll, pk=poll_id)
+    
+    stat = Response.objects.filter(poll=poll).values('choice').annotate(total=Count('id')).order_by('choice')
+    total = 0 
+    
+    for s in stat:
+        total += s['total']
+        
+    stat_percent = []
+    for s in stat:
+        t = float(s['total']) / total * 100
+        c = Choice.objects.get(pk=s['choice'])
+        stat_percent.append((c,t)) 
+    
+    stat_percent = sortByPercent(stat_percent)
+    
+    stat_percent.reverse()
+    return render_to_response('questions/result_total.html', {'stats':stat_percent, 'poll':poll}, context_instance=RequestContext(request))
+
 
 def result(request, response_id):
     answer = get_object_or_404(Response, pk=response_id)
@@ -207,7 +297,7 @@ def chart(request, chart_id):
                     res[i][j] = 0.0
                 
     
-    next = randint(8,14)
+    next = randint(9,14)
     
     if not chart.pie_chart:
         return render_to_response('questions/chart.html', {'chart':chart, 'stat':res, 'respondents':respondents, "next":next}, context_instance=RequestContext(request))

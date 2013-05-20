@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+<script type="text/javascript">
+jQuery(document).ready(function($){
+	
+	$(".barra").each( function(){
+		
+		$(this).css("background-image", "url(/static_media/img/linea.png)");  
+
+		alturaImagen = 152;
+		
+		alturaTotal = parseInt(($(this).attr("rel") * alturaImagen) / 100);		
+		
+		valor  = $(this).css('top');		
+		valor2 = $(this).css('height');
+
+		vartop  = valor.split("px");
+		alto = valor2.split("px");
+		
+		topNuevo = (vartop[0] - alturaTotal)+"px";
+		
+		$(this).animate( { height: alturaTotal, top: topNuevo },2000,'easeOutBounce' );
+		
+		$(this).parent().parent().find(".result").html($(this).attr("rel") + " %");
+	});
+	
+	
+});
+</script>
+{% endblock %}
+
+{% block main_content %}
+<div id="bannerHomeTable2">
+<div class="cent">
+<img width="100%" height="100px" alt="Wikilife" src="/static_media/img/header.png">
+</div>
+
+
+<div class="labelr">{{ poll.question|safe}} </div>
+
+{% for key in stats %}
+
+	<div id="resultado_{{ forloop.counter }}" >
+		<div class="seleccionado"></div>
+		<div id="choices">
+			<div class="result"></div>
+			<div>
+				<div class="persona">
+				</div>
+				<div class="persona2">
+				</div>
+				<div class="barra" rel="{{ key.1.1|floatformat }}">
+				</div>
+			</div>
+			<br/>
+			<span class="resp">{{ key.1.0}}</span>
+		</div>
+	</div>	
+
+
+{% endfor %}
+	</div>
+
+{% endblock%}

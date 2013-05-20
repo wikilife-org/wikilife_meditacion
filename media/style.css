@@ -167,7 +167,7 @@ src: url(/static_media/fonts/MyriadWebPro.ttf); /* make sure this path is set to
     left: 16px;
     position: absolute;
     right: 30px;
-    top: 230px;
+    top: 225px;
     white-space: pre-wrap;
     width: 189px;
     z-index: 99;
@@ -1103,4 +1103,82 @@ div#pieChart canvas {
     font-size: 25px;
     margin-top: 26px;
     text-align: center;
+}
+.labelr {
+    color: #2D3D61;
+    font-family: Myriad Pro;
+    font-size: 25px;
+    margin-top: 26px;
+    text-align: center;
+     margin-left: 250px;
+     width: 900px;
+}
+#full_result{
+	
+	
+}
+
+
+#resultado_1 {
+	width: 190px;
+	height: 150px;
+	top: 280px;
+	left: 30px;
+	position: absolute;
+	background-image: url(/static_media/img/tarjeta_gris.png);
+	background-repeat: no-repeat;
+	background-position: 0px 27px;
+}
+
+#resultado_2 {
+	width: 190px;
+	height: 150px;
+	top: 280px;
+	left: 255px;
+	position: absolute;
+	background-image: url(/static_media/img/tarjeta_gris.png);
+	background-repeat: no-repeat;
+	background-position: 0px 27px;
+}
+
+#resultado_3 {
+	width: 190px;
+	height: 150px;
+	top: 280px;
+	left: 480px;
+	position: absolute;
+	background-image: url(/static_media/img/tarjeta_gris.png);
+	background-repeat: no-repeat;
+	background-position: 0px 27px;
+}
+#resultado_4 {
+	width: 190px;
+	height: 150px;
+	top: 280px;
+	left: 700px;
+	position: absolute;
+	background-image: url(/static_media/img/tarjeta_gris.png);
+	background-repeat: no-repeat;
+	background-position: 0px 27px;
+}
+
+#resultado_5 {
+	width: 190px;
+	height: 150px;
+	top: 280px;
+	left: 920px;
+	position: absolute;
+	background-image: url(/static_media/img/tarjeta_gris.png);
+	background-repeat: no-repeat;
+	background-position: 0px 27px;
+}
+#resultado_6 {
+	width: 190px;
+	height: 150px;
+	top: 280px;
+	left: 1140px;
+	position: absolute;
+	background-image: url(/static_media/img/tarjeta_gris.png);
+	background-repeat: no-repeat;
+	background-position: 0px 27px;
 }

@@ -11,4 +11,7 @@ urlpatterns = patterns('questions.views',
     (r'^thanks/(?P<person_id>\d+)/$', 'thanks'),
     (r'^charts/', 'charts'),
     (r'^chart/(?P<chart_id>\d+)/$', 'chart'),
+    (r'^xls/', 'xls'),
+    (r'^result_total/(?P<poll_id>\d+)/$', 'result_total'),
+    (r'^list/', 'list'),
 )

@@ -1,0 +1,9 @@
+{% extends "base-result.html" %}
+
+{% block content %}
+
+{% for poll in polls %}
+<h3><a href="/polls/result_total/{{poll.id}}/">{{ poll.question|safe}}</a></h3>
+{% endfor %}
+
+{% endblock %}
